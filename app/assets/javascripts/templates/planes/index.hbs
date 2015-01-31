@@ -1,0 +1,18 @@
+<h2>Planes</h2>
+
+<button class="create-plane">Create Plane</button>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Rows</th>
+    <th>Columns</th>
+  </tr>
+  {{#each planes}}
+  <tr>
+    <td>{{name}}</td>
+    <td>{{rows}}</td>
+    <td>{{columns}}</td>
+  </tr> 
+  {{/each}}
+</table>

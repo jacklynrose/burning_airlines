@@ -13,4 +13,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require handlebars.runtime
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./templates
+//= require_tree ./views
 //= require_tree .
+
+$(function() {
+  Backbone.history.start({ pushState: true });
+});
