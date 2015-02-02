@@ -20,21 +20,18 @@ var App = App || {};
     },
 
     savePlane: function() {
-      var id = this.$el.find("input[name='id']").val();
-      if (id == ""){
-        App.planesCollection.create({
+      var planeData = {
           name: this.$el.find("input[name='name']").val(),
           rows: this.$el.find("input[name='rows']").val(),
           columns: this.$el.find("input[name='columns']").val()
-        });
+        };
+      var id = this.$el.find("input[name='id']").val();
+      if (id == ""){
+        App.planesCollection.create(planeData);
         this.render();
       } else if (id !== undefined){
         var plane = App.planesCollection.get(id);
-        plane.save({
-          name: this.$el.find("input[name='name']").val(),
-          rows: this.$el.find("input[name='rows']").val(),
-          columns: this.$el.find("input[name='columns']").val()
-        });
+        plane.save(planeData);
         this.render();
       }
       
