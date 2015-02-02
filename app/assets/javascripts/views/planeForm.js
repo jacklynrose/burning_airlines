@@ -20,11 +20,24 @@ var App = App || {};
     },
 
     savePlane: function() {
-      App.planesCollection.create({
-        name: this.$el.find("input[name='name']").val(),
-        rows: this.$el.find("input[name='rows']").val(),
-        columns: this.$el.find("input[name='columns']").val()
-      });
+      var id = this.$el.find("input[name='id']").val();
+      console.log(id);
+      if (id !== undefined){
+        console.log("alkalkn")
+        var plane = App.planesCollection.get(id);
+        plane.save({
+          name: this.$el.find("input[name='name']").val(),
+          rows: this.$el.find("input[name='rows']").val(),
+          columns: this.$el.find("input[name='columns']").val()
+        });
+      } else {
+        App.planesCollection.create({
+          name: this.$el.find("input[name='name']").val(),
+          rows: this.$el.find("input[name='rows']").val(),
+          columns: this.$el.find("input[name='columns']").val()
+        });
+      }
+      
 
       App.rootView.hideForm();
     },

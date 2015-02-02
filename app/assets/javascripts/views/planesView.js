@@ -10,12 +10,15 @@ var App = App || {};
     },
 
     editPlane: function(event){
+      debugger;
       var id = $(event.currentTarget).attr("data-id");
-      var currentPlane = App.planesCollection.at(id);
+      var currentPlane = App.planesCollection.get(id);
       var columns = currentPlane.attributes.columns;
       var rows = currentPlane.attributes.rows;
       var name = currentPlane.attributes.name;
+      console.log(id);
       App.rootView.displayForm(App.PlaneForm, {
+        id: id,
         name: name,
         columns: columns,
         rows: rows
