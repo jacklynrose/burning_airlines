@@ -19,6 +19,14 @@ var App = App || {};
       return this;
     },
 
+    renderEdit: function() {
+      this.$el.html(
+        HandlebarsTemplates['planes/form']()
+      );
+
+      return this;
+    },
+
     savePlane: function() {
       App.planesCollection.create({
         name: this.$el.find("input[name='name']").val(),
@@ -58,5 +66,6 @@ var App = App || {};
     preventSubmission: function(event) {
       event.preventDefault();
     }
+
   });
 })(App);
