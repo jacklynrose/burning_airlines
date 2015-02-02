@@ -6,7 +6,8 @@ var App = App || {};
   App.Router = Backbone.Router.extend({
     routes: {
       '': 'planes',
-      'planes': 'planes'
+      'planes': 'planes',
+      'flights': 'flights'
     },
 
     initialize: function() {
@@ -23,7 +24,14 @@ var App = App || {};
       App.planesCollection.fetch().then(function() {
         App.rootView.display(App.PlanesView);
       });
-    }
+    },
+
+    flights: function() {
+      App.flightsCollection.fetch().then(function() {
+        App.rootView.display(App.FlightsView);
+      });
+    },
+
   });
   App.router = new App.Router();
 })(App);

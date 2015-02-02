@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
-  resources :planes
+  resources :planes, :flights
 
   root "pages#index"
 
