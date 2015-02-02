@@ -41,24 +41,7 @@ var App = App || {};
       });
     } else {
 
-      var plane App.planesCollection.get(id);
-
-      plane
-    }
-
-      var id = this.$el.find(".save").data("id");
-
-      if (App.planesCollection.get(id) === undefined){
-        App.planesCollection.create({
-          name: this.$el.find("input[name='name']").val(),
-          rows: this.$el.find("input[name='rows']").val(),
-          columns: this.$el.find("input[name='columns']").val()
-        });
-
-
-      } else {
-
-        var plane = App.planesCollection.get(id);
+      var plane = App.planesCollection.get(id);
 
         plane.save({
           name: this.$el.find("input[name='name']").val(),
