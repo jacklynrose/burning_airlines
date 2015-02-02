@@ -21,15 +21,14 @@ var App = App || {};
 
     savePlane: function() {
       var id = this.$el.find("input[name='id']").val();
-      console.log(id);
-      if (id !== undefined){
-        console.log("alkalkn")
+      if (id !== "" || id !== undefined){
         var plane = App.planesCollection.get(id);
         plane.save({
           name: this.$el.find("input[name='name']").val(),
           rows: this.$el.find("input[name='rows']").val(),
           columns: this.$el.find("input[name='columns']").val()
         });
+        this.render();
       } else {
         App.planesCollection.create({
           name: this.$el.find("input[name='name']").val(),
