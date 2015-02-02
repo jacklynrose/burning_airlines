@@ -25,6 +25,7 @@ var App = App || {};
 
     initialize: function() {
       App.planesCollection.on("add", this.render, this);
+      App.planesCollection.on("change", this.render, this);
     },
 
     render: function() {

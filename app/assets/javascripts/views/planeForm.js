@@ -19,7 +19,9 @@ var App = App || {};
       return this;
     },
 
-    savePlane: function() {
+    savePlane: function(event) {
+      event.preventDefault();
+      
       var planeData = {
           name: this.$el.find("input[name='name']").val(),
           rows: this.$el.find("input[name='rows']").val(),
