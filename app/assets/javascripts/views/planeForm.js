@@ -21,7 +21,14 @@ var App = App || {};
 
     savePlane: function() {
       var id = this.$el.find("input[name='id']").val();
-      if (id !== "" || id !== undefined){
+      if (id == ""){
+        App.planesCollection.create({
+          name: this.$el.find("input[name='name']").val(),
+          rows: this.$el.find("input[name='rows']").val(),
+          columns: this.$el.find("input[name='columns']").val()
+        });
+        this.render();
+      } else if (id !== undefined){
         var plane = App.planesCollection.get(id);
         plane.save({
           name: this.$el.find("input[name='name']").val(),
@@ -29,12 +36,6 @@ var App = App || {};
           columns: this.$el.find("input[name='columns']").val()
         });
         this.render();
-      } else {
-        App.planesCollection.create({
-          name: this.$el.find("input[name='name']").val(),
-          rows: this.$el.find("input[name='rows']").val(),
-          columns: this.$el.find("input[name='columns']").val()
-        });
       }
       
 
