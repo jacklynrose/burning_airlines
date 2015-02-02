@@ -11,9 +11,9 @@ var App = App || {};
       'submit form': 'preventSubmission'
     },
 
-    render: function() {
+    render: function(options) {
       this.$el.html(
-        HandlebarsTemplates['planes/form']()
+        HandlebarsTemplates['planes/form'](options)
       );
 
       return this;
