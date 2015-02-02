@@ -1,7 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Flight.create(flight_number: "234", date: "2015-01-01", origin: "SYD", destination: "NYC", plane_id:"1")
+Flight.create(flight_number: "6543", date: "2015-02-01", origin: "JPN", destination: "LDN", plane_id:"2")
+Flight.create(flight_number: "23978764", date: "2015-03-07", origin: "MEL", destination: "LAX", plane_id:"3")
