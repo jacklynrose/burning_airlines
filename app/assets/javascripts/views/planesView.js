@@ -25,8 +25,9 @@ var App = App || {};
       App.rootView.displayForm(App.PlaneForm);
     },
 
-    editPlane: function() {
-      App.rootView.displayFilledForm(App.PlaneForm);
+    editPlane: function(event) {
+      var id = $(event.currentTarget).data("id");
+      App.rootView.displayFilledForm(App.PlaneForm, id);
     }
   });
 })(App);

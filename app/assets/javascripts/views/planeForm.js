@@ -19,9 +19,11 @@ var App = App || {};
       return this;
     },
 
-    renderEdit: function() {
+    renderEdit: function(id) {
+      var plane = App.planesCollection.get(id).toJSON();
+
       this.$el.html(
-        HandlebarsTemplates['planes/form']()
+        HandlebarsTemplates['planes/form'](plane)
       );
 
       return this;
