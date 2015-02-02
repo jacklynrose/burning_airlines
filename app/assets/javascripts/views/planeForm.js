@@ -11,20 +11,32 @@ var App = App || {};
       'submit form': 'preventSubmission'
     },
 
-    render: function() {
+    render: function(data) {
       this.$el.html(
-        HandlebarsTemplates['planes/form']()
+        HandlebarsTemplates['planes/form'](data)
       );
 
       return this;
     },
 
-    savePlane: function() {
-      App.planesCollection.create({
-        name: this.$el.find("input[name='name']").val(),
-        rows: this.$el.find("input[name='rows']").val(),
-        columns: this.$el.find("input[name='columns']").val()
-      });
+    savePlane: function(event) {
+      event.preventDefault();
+      
+      var planeData = {
+          name: this.$el.find("input[name='name']").val(),
+          rows: this.$el.find("input[name='rows']").val(),
+          columns: this.$el.find("input[name='columns']").val()
+        };
+      var id = this.$el.find("input[name='id']").val();
+      if (id == ""){
+        App.planesCollection.create(planeData);
+        this.render();
+      } else if (id !== undefined){
+        var plane = App.planesCollection.get(id);
+        plane.save(planeData);
+        this.render();
+      }
+      
 
       App.rootView.hideForm();
     },
