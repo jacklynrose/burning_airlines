@@ -6,17 +6,31 @@ var App = App || {};
   App.PlaneForm = Backbone.View.extend({
     events: {
       'click .save': 'savePlane',
+      'click .update': 'updatePlane',
       'click .cancel': 'cancel',
       'click .preview': 'previewSeating',
       'submit form': 'preventSubmission'
     },
 
-    render: function() {
+    render: function(data, update) {
       this.$el.html(
-        HandlebarsTemplates['planes/form']()
+        HandlebarsTemplates['planes/form'](data)
       );
+      if (update.update === true) {     
+        this.$el.find(".save").removeClass("save").addClass("update");
+      }
 
       return this;
+    },
+
+      updatePlane: function() {
+      var plane = App.planesCollection.get(this.$el.find("input[name='plane_id']").val());
+      plane.save({
+        name: this.$el.find("input[name='name']").val(),
+        rows: this.$el.find("input[name='rows']").val(),
+        columns: this.$el.find("input[name='columns']").val()
+      });
+      App.rootView.hideForm();
     },
 
     savePlane: function() {
@@ -25,7 +39,6 @@ var App = App || {};
         rows: this.$el.find("input[name='rows']").val(),
         columns: this.$el.find("input[name='columns']").val()
       });
-
       App.rootView.hideForm();
     },
 
