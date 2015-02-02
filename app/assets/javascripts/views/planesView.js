@@ -11,6 +11,7 @@ var App = App || {};
 
     initialize: function() {
       App.planesCollection.on("add", this.render, this);
+      App.planesCollection.on("change", this.render, this);
     },
 
     render: function() {
@@ -28,6 +29,7 @@ var App = App || {};
     editPlane: function(event) {
       var id = $(event.currentTarget).data("id");
       App.rootView.displayFilledForm(App.PlaneForm, id);
+
     }
   });
 })(App);
