@@ -1,12 +1,14 @@
 <form>
   <p>
-    <input type="text" name="name" placeholder="Name">
-    <input type="number" name="rows" placeholder="Rows">
-    <input type="number" name="columns" placeholder="Columns">
+
+    <input type="text" name="name" placeholder="Name" value="{{name}}">
+    <input type="number" name="rows" placeholder="Rows" value="{{rows}}">
+    <input type="number" name="columns" placeholder="Columns" value="{{columns}}">
+
   </p>
 
   <p>
-    <button class="save">Save</button>
+    <button class="save" data-id="{{id}}">Save</button>
     <button class="preview">Preview</button>
     <button class="cancel">Cancel</button>
   </p>
