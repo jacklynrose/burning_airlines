@@ -16,7 +16,6 @@ var App = App || {};
       this.$el.html(
         HandlebarsTemplates['planes/index']({ planes: App.planesCollection.toJSON() })
       );
-
       return this;
     },
 

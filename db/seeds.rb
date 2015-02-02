@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Flight.create( flight_number: '7654');
+Flight.create( flight_number: 'yooooo');

@@ -4,6 +4,11 @@ var App = App || {};
 
 (function(App) {
   App.Router = Backbone.Router.extend({
+
+    // openPage: function(url) {
+    //   this.navigate(url, { trigger: true });
+    // },
+
     routes: {
       '': 'planes',
       'planes': 'planes',
@@ -16,7 +21,7 @@ var App = App || {};
 
       $("nav a:not([data-backbone-navigation='false'])").on("click", function(event) {
         event.preventDefault();
-        App.router.navigate($(this).attr("href"));
+        App.router.navigate($(this).attr("href"), { trigger: true });
       });
     },
 
