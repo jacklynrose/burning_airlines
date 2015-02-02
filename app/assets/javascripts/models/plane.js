@@ -4,6 +4,6 @@ var App = App || {};
 
 (function(App) {
   App.Plane = Backbone.Model.extend({
-    urlRoot: "/planes"
+    urlRoot: "/api/planes"
   });
 })(App);
