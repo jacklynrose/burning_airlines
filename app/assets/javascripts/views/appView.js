@@ -17,9 +17,9 @@ var App = App || {};
       this.$el.find(".app-content").html(this.currentView.render().el);
     },
 
-    displayForm: function(Form) {
+    displayForm: function(Form, data) {
       this.currentForm = new Form();
-      this.$el.find(".app-form").html(this.currentForm.render().el).slideDown();
+      this.$el.find(".app-form").html(this.currentForm.render(data).el).slideDown();
     },
 
     hideForm: function() {
