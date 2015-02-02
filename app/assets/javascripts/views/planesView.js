@@ -7,10 +7,12 @@ var App = App || {};
     events: {
       'click .create-plane': 'createPlane',
       'dblclick .plane-row' : 'editPlane'
+
     },
 
     initialize: function() {
       App.planesCollection.on("add", this.render, this);
+      App.planesCollection.on("change", this.render, this);
     },
 
     render: function() {
@@ -25,7 +27,8 @@ var App = App || {};
       App.rootView.displayForm(App.PlaneForm);
     },
 
-    editPlane: function(event){
+
+    editPlane: function(event) {
       var id = $(event.currentTarget).data("id");
       App.rootView.displayFilledForm(App.PlaneForm, id);
 

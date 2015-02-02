@@ -22,9 +22,11 @@ var App = App || {};
       this.$el.find(".app-form").html(this.currentForm.render().el).slideDown();
     },
 
-    displayFilledForm: function(Form, id) {
+    displayFilledForm: function(Form, id){
       this.currentForm = new Form();
       this.$el.find(".app-form").html(this.currentForm.renderEdit(id).el).slideDown();
+
+
     },
 
     hideForm: function() {
