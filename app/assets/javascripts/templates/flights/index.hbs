@@ -9,12 +9,12 @@
     <th>Plane</th>
   </tr>
   {{#each flights}}
-  <tr data-id={{id}}>
+  <tr>
     <td>{{flight_number}}</td>
     <td>{{date}}</td>
     <td>{{origin}}</td>
     <td>{{destination}}</td>
-    <td>{{plane_id}}</td>
+    <td class="plane-name" data-id={{plane_id}}>{{planeName}}</td>
   </tr> 
   {{/each}}
 </table>

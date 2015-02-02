@@ -11,9 +11,19 @@ var App = App || {};
     },    
 
     render: function(){
+
+      var flightsWithPlanes = [];
+      App.flightsCollection.each(function(flight) {
+        var withPlane = flight.toJSON();
+        withPlane.planeName = App.planesCollection.get(flight.get('plane_id')).get('name');
+        flightsWithPlanes.push(withPlane)
+      });
+
       this.$el.html(
-        HandlebarsTemplates['flights/index']({ flights: App.flightsCollection.toJSON() })
+        HandlebarsTemplates['flights/index']({ flights: flightsWithPlanes })
         );
+
+
       return this;
     }
   });

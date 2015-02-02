@@ -27,8 +27,10 @@ var App = App || {};
     },
 
     flights: function() {
-      App.flightsCollection.fetch().then(function() {
-        App.rootView.display(App.FlightsView);
+      App.planesCollection.fetch().then(function() {
+        App.flightsCollection.fetch().then(function() {
+          App.rootView.display(App.FlightsView);
+        });
       });
     }
   });
