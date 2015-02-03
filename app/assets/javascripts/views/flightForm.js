@@ -26,7 +26,7 @@ var App = App || {};
         HandlebarsTemplates['flights/form']({plane: App.planesCollection.toJSON(), flight: flight})
         );
 
-        this.$el.find(".save").attr("data-id", flight.plane_id ).removeClass("save").addClass("update").html("Update");
+        this.$el.find(".save").attr("data-id", id ).removeClass("save").addClass("update").html("Update");
         this.$el.find("option[value=\"" + flight.plane_id + "\"]").attr("selected", "selected");
         }
         return this;
