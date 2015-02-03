@@ -9,9 +9,9 @@ var App = App || {};
 			'click .create-flight': 'createFlight'
 		},
 
-		// initialize: function() {
-		// 	App.flightsCollection.on('add', this.render, this);
-		// },
+		initialize: function() {
+			App.flightsCollection.on('add', this.render, this);
+		},
 
 		render: function() {
 			this.$el.html(
