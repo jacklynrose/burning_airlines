@@ -23,7 +23,8 @@ var App = App || {};
 				number: this.$el.find("input[name='number']").val(),
 				date: this.$el.find("input[name='date']").val(),
 				origin: this.$el.find("input[name='origin']").val(),
-				destination: this.$el.find("input[name='destination']").val()
+				destination: this.$el.find("input[name='destination']").val(),
+				plane_id: this.$el.find("input[name='plane_id']").val()
 			});
 
 			App.rootView.hideForm();
