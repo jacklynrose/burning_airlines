@@ -6,7 +6,8 @@ var App = App || {};
   App.Router = Backbone.Router.extend({
     routes: {
       '': 'planes',
-      'planes': 'planes'
+      'planes': 'planes',
+      'flights': 'flights'
     },
 
     initialize: function() {
@@ -16,6 +17,15 @@ var App = App || {};
       $("nav a:not([data-backbone-navigation='false'])").on("click", function(event) {
         event.preventDefault();
         App.router.navigate($(this).attr("href"), { trigger: true });
+      });
+    },
+
+    flights: function() {
+      App.planesCollection.fetch().then(function() {
+        App.flightsCollection.fetch().then(function() {
+          console.log(App.flightsCollection);
+          App.rootView.display(App.FlightsView);
+        });
       });
     },
 
