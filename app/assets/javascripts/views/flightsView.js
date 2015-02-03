@@ -15,22 +15,19 @@ var App = App || {};
 
 		render: function() {
 			var flightsWithPlanes = [];
-			var allThePlanes = [];
 
 			App.flightsCollection.each(function(flight) {
 				var theFlight = flight.toJSON();
 				var planeID = flight.get('plane_id');
 				var planeModel = App.planesCollection.get(planeID);
-				var planeModelJson = planeModel.toJSON();
 
 				if (planeModel) {
 					theFlight.planeName = planeModel.get('name');
 				}
 
 				flightsWithPlanes.push(theFlight);
-				allThePlanes.push(planeModelJson);
+
 			});
-			debugger;
 
 			this.$el.html(
 				HandlebarsTemplates['flights/index']({ flights: flightsWithPlanes })

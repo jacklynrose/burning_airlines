@@ -12,8 +12,9 @@ var App = App || {};
 		},
 
 		render: function() {
+			
 			this.$el.html(
-				HandlebarsTemplates['flights/form']()
+				HandlebarsTemplates['flights/form']({ planes: App.planesCollection.toJSON() })
 			);
 			return this;
 		},
