@@ -1,0 +1,23 @@
+<form>
+  <p>
+    {{#flight}}
+    <input type="text" name="flight-number" placeholder="Flight Number" value={{flight_number}}>
+    <input type="date" name="date" placeholder="Date" value={{formattedDate}}>
+    <input type="text" name="origin" placeholder="Origin" value={{origin}}>
+    <input type="text" name="destination" placeholder="Destination" value={{destination}}>
+    {{/flight}}
+    <select name="plane_id">
+    {{#each plane}}
+      <option value="{{id}}">{{name}}</option>     
+    {{/each}}
+    </select>
+  </p>
+
+  <p>
+    <button class="save">Save</button>
+    <button class="preview">Preview</button>
+    <button class="cancel">Cancel</button>
+  </p>
+</form>
+
+<div class="seating-preview"></div>
