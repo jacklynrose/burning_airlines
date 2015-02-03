@@ -1,0 +1,22 @@
+<h2>Planes</h2>
+
+<button class="create-flight">Create Flight</button>
+
+<table>
+  <tr>
+    <th>Flight Number</th>
+    <th>Date</th>
+    <th>Origin</th>
+    <th>Destination</th>
+    <th>Aircraft</th>
+  </tr>
+  {{#each flights}}
+  <tr data-id={{id}} class="flight-row">
+    <td>{{flight_number}}</td>
+    <td>{{date}}</td>
+    <td>{{origin}}</td>
+    <td>{{destination}}</td>
+    <td>{{plane.name}}</td>
+  </tr> 
+  {{/each}}
+</table>
