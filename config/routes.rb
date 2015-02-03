@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   scope '/api' do
-    resources :planes
+    resources :planes, :flights
   end
 
   root "pages#index"
