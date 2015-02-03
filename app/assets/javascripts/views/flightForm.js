@@ -2,6 +2,7 @@
 
 var App = App || {};
 
+
 (function(App) {
   App.FlightForm = Backbone.View.extend({
     events: {
@@ -10,13 +11,21 @@ var App = App || {};
       'submit form': 'preventSubmission'
     },
 
-    render: function() {
+    render: function(id) {
       App.planesCollection.fetch();
-      this.$el.html(
-        HandlebarsTemplates['flights/form']({plane: App.planesCollection.toJSON()})
-      );
-
-      return this;
+      if (id === undefined){
+        this.$el.html(
+        HandlebarsTemplates['flights/form']({plane: App.planesCollection.toJSON(), flight: {}})
+        ) }
+        else {
+        var flight = App.flightsCollection.get(id).toJSON(); 
+        flight.formattedDate = flight.date.substr(0, 10);
+        this.$el.html(
+        HandlebarsTemplates['flights/form']({plane: App.planesCollection.toJSON(), flight: flight})
+        )
+        this.$el.find("option[value=\"" + flight.plane_id + "\"]").attr("selected", "selected")
+        }
+        return this;
     },
 
     saveFlight: function() {

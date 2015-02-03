@@ -1,12 +1,15 @@
 <form>
   <p>
-    <input type="text" name="flight-number" placeholder="Flight Number">
-    <input type="date" name="date" placeholder="Date">
-    <input type="text" name="origin" placeholder="Origin">
-    <input type="text" name="destination" placeholder="Destination">
+    {{#flight}}
+    <input type="text" name="flight-number" placeholder="Flight Number" value={{flight_number}}>
+    <input type="date" name="date" placeholder="Date" value={{formattedDate}}>
+    <input type="text" name="origin" placeholder="Origin" value={{origin}}>
+    <input type="text" name="destination" placeholder="Destination" value={{destination}}>
+    {{plane_id}}
+    {{/flight}}
     <select name="plane_id">
     {{#each plane}}
-    <option value="{{id}}">{{name}}</option>
+      <option value="{{id}}">{{name}}</option>     
     {{/each}}
     </select>
   </p>

@@ -18,8 +18,9 @@ var App = App || {};
       App.rootView.displayForm(App.FlightForm); 
     },
 
-    editFlight: function(){
-      alert("Edit Flight");
+    editFlight: function(event){
+      var id = $(event.currentTarget).data("id");
+      App.rootView.displayForm(App.FlightForm, id ); 
     },
 
 
