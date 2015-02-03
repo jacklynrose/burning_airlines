@@ -6,7 +6,7 @@ var App = App || {};
 	App.FlightsView = Backbone.View.extend({
 
 		events: {
-
+			'click .create-flight': 'createFlight'
 		},
 
 		// initialize: function() {
@@ -18,6 +18,10 @@ var App = App || {};
 				HandlebarsTemplates['flights/index']({ flights: App.flightsCollection.toJSON() })
 			);
 			return this;
+		},
+
+		createFlight: function() {
+			App.rootView.displayForm(App.FlightForm);
 		},
 
 	});
