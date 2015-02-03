@@ -11,7 +11,7 @@ var App = App || {};
 
       return this;
     },
-
+    
     display: function(View) {
       this.currentView = new View();
       this.$el.find(".app-content").html(this.currentView.render().el);

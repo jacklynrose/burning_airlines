@@ -4,6 +4,7 @@ var App = App || {};
 
 (function(App) {
   App.PlanesView = Backbone.View.extend({
+    
     events: {
       'click .create-plane': 'createPlane'
     },
