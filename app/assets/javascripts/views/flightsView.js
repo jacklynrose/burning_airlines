@@ -5,12 +5,21 @@ var App = App || {};
 (function(App) {
   App.FlightsView = Backbone.View.extend({
 
+     events: {
+      'click .create-flight': 'createFlight'
+    },
+
     initialize: function(){
       App.flightsCollection.on("add", this.render, this);    
     },    
 
+    createFlight: function(){
+      alert("Create Flight");
+    },
+
+
     render: function(){
-      
+
       var flightsWithPlanes = [];
       App.flightsCollection.each(function(flight) {
         var withPlane = flight.toJSON();
