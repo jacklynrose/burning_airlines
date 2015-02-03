@@ -6,7 +6,8 @@ var App = App || {};
   App.FlightsView = Backbone.View.extend({
 
      events: {
-      'click .create-flight': 'createFlight'
+      'click .create-flight': 'createFlight',
+      'dblclick tr': 'editFlight'
     },
 
     initialize: function(){
@@ -14,7 +15,11 @@ var App = App || {};
     },    
 
     createFlight: function(){
-      alert("Create Flight");
+      App.rootView.displayForm(App.FlightForm); 
+    },
+
+    editFlight: function(){
+      alert("Edit Flight");
     },
 
 

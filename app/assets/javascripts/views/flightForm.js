@@ -11,44 +11,26 @@ var App = App || {};
     },
 
     render: function() {
+      App.planesCollection.fetch();
       this.$el.html(
-        HandlebarsTemplates['planes/form']()
+        HandlebarsTemplates['flights/form']({plane: App.planesCollection.toJSON()})
       );
 
       return this;
     },
 
     saveFlight: function() {
-      App.planesCollection.create({
-        name: this.$el.find("input[name='name']").val(),
-        rows: this.$el.find("input[name='rows']").val(),
-        columns: this.$el.find("input[name='columns']").val()
+      App.flightsCollection.create({
+        flight_number: this.$el.find("input[name='flight-number']").val(),
+        date: this.$el.find("input[name='date']").val(),
+        origin: this.$el.find("input[name='origin']").val(),
+        destination: this.$el.find("input[name='destination']").val(),
+        plane_id: this.$el.find("select[name='plane_id']").val()
       });
 
       App.rootView.hideForm();
     },
 
-    previewSeating: function() {
-      var numRows = parseInt(this.$el.find("input[name='rows']").val());
-      var rows = [];
-      for(var i=1; i <= numRows; i++) {
-        rows.push({ row: i });
-      }
-
-      var columnLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-      var numColumns = parseInt(this.$el.find("input[name='columns']").val());
-      var columns = [];
-      for(var i=0; i < numColumns; i++) {
-        columns.push({ column: columnLetters[i] });
-      }
-
-      this.$el.find(".seating-preview").html(
-        HandlebarsTemplates['planes/seating_preview']({
-          rows: rows,
-          columns: columns
-        })
-      );
-    },
 
     cancel: function() {
       App.rootView.hideForm();

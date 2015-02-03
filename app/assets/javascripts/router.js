@@ -23,7 +23,6 @@ var App = App || {};
     flights: function() {
       App.planesCollection.fetch().then(function() {
         App.flightsCollection.fetch().then(function() {
-          console.log(App.flightsCollection);
           App.rootView.display(App.FlightsView);
         });
       });
